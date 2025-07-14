@@ -1,3 +1,30 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for dnf
+
+- name: Ensure DNF is installed
+  ansible.builtin.package:
+    name: dnf
+    state: present
+
+- name: Define DNF packages
+  set_fact:
+    dnf_packages:
+      - "httpd"
+      - "nginx"
+      - "vim"
+      - "git"
+
+- name: Install DNF packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dnf_packages }}"
+  when: dnf_packages is defined
+  register: dnf_results
+
+- name: Display DNF installation results
+  ansible.builtin.debug:
+    msg: "Package {{ item.item }} installed with state {{ item.state }}"
+  loop: "{{ dnf_results.results }}"
+  when: dnf_results.results is defined
