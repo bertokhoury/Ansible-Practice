@@ -1,0 +1,9 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for nexus
+nexus_url: "http://nexus.example.com"
+nexus_repo: "my-repo"
+nexus_artifacts:
+  - "artifact1.jar"
+  - "artifact2.jar"
+nexus_dest: "/tmp/nexus"

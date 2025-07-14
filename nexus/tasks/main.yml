@@ -1,0 +1,12 @@
+#SPDX-License-Identifier: MIT-0
+---
+#Download Nexus artifacts from a Nexus repository
+- name: Download Nexus artifacts
+  ansible.builtin.get_url:
+    url: "{{ nexus_url }}/repository/{{ nexus_repo }}/{{ item }}"
+    dest: "{{ nexus_dest }}/{{ item }}"
+    mode: '0644'
+    force: yes
+  loop: "{{ nexus_artifacts }}"
+  when: nexus_url is defined and nexus_repo is defined and nexus_artifacts is defined and nexus_dest is defined
+  register: download_results
