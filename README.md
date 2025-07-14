@@ -1,4 +1,5 @@
-# Collection of Ansible Playbooks for various use cases
+# Collection of Ansible Roles for various use cases
+Each role (directory) is for a different use case example.
 
 ## Nexus
 Playbook designed to show how to locally download Nexus artifacts from a Nexus repository
