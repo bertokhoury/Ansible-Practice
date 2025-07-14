@@ -2,3 +2,6 @@
 
 ## Nexus
 Playbook designed to show how to locally download Nexus artifacts from a Nexus repository
+
+## DNF
+Playbook showing how to use DNF
